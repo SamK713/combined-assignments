@@ -14,16 +14,23 @@ public class Rational implements IRational {
      * @param denominator the denominator of the rational value
      * @throws IllegalArgumentException if the given denominator is 0
      */
-    public Rational(int numerator, int denominator) throws IllegalArgumentException {
-        throw new NotImplementedException();
-    }
+   private int numerator;
+   private int denominator;
+	
+	public Rational(int numerator, int denominator) throws IllegalArgumentException {
+		if(denominator == 0){
+			throw new IllegalArgumentException();
+		}
+		this.numerator = numerator;
+        this.denominator = denominator;
+        }
 
     /**
      * @return the numerator of this rational number
      */
     @Override
     public int getNumerator() {
-        throw new NotImplementedException();
+        return this.numerator;
     }
 
     /**
@@ -31,7 +38,7 @@ public class Rational implements IRational {
      */
     @Override
     public int getDenominator() {
-        throw new NotImplementedException();
+    	return this.denominator;
     }
 
     /**
@@ -47,7 +54,8 @@ public class Rational implements IRational {
      */
     @Override
     public Rational construct(int numerator, int denominator) throws IllegalArgumentException {
-        throw new NotImplementedException();
+        if(denominator == 0)throw new IllegalArgumentException();
+           return new Rational(numerator, denominator);
     }
 
     /**
@@ -58,7 +66,19 @@ public class Rational implements IRational {
      */
     @Override
     public boolean equals(Object obj) {
-        throw new NotImplementedException();
+        if(obj instanceof Rational){
+        	if(((Rational)obj).getNumerator() == this.getNumerator() && ((Rational)obj).getDenominator() == this.getDenominator()){
+        	
+        		return true;
+        	}else{
+            	return false;
+            }
+        	
+        }else{
+        	
+        	return false;
+        }
+    
     }
 
     /**
@@ -70,6 +90,13 @@ public class Rational implements IRational {
      */
     @Override
     public String toString() {
-        throw new NotImplementedException();
+        if((getNumerator() < 0 || getDenominator() < 0 ) && (getNumerator() >= 0 || getDenominator() >= 0)){
+         
+        	return String.format("-%d/%d" , Math.abs(getNumerator()), Math.abs(getDenominator()));
+        }else{
+        	return String.format("%d/%d" , Math.abs(getNumerator()), Math.abs(getDenominator()));
+
+        }
+    	
     }
 }
