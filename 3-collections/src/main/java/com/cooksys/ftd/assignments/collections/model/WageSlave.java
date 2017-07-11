@@ -25,7 +25,7 @@ public class WageSlave implements Capitalist {
      */
     @Override
     public String getName() {
-        return this.getName();
+        return this.name;
     }
 
     /**
@@ -33,7 +33,7 @@ public class WageSlave implements Capitalist {
      */
     @Override
     public int getSalary() {
-        return this.getSalary();
+        return this.salary;
     }
 
     /**

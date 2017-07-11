@@ -15,6 +15,7 @@ public class FatCat implements Capitalist {
     public FatCat(String name, int salary) {
         this.name = name;
         this.salary = salary;
+        this.owner = null;
     }
 
     public FatCat(String name, int salary, FatCat owner) {
@@ -36,10 +37,7 @@ public class FatCat implements Capitalist {
      */
     @Override
     public int getSalary() {
-    	NumberFormat n = NumberFormat.getCurrencyInstance(Locale.US); 
-    	String s = n.format(this.salary / 100.0);
-    	double d = Integer.parseInt(s);
-    	return (int) d;
+    	return this.salary;
     }
 
     @Override
@@ -89,6 +87,6 @@ public class FatCat implements Capitalist {
      */
     @Override
     public FatCat getParent() {
-    	return owner;
+    	return this.owner;
     }
 }
